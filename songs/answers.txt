@@ -1,0 +1,7 @@
+SELECT avg(energy),avg(valence),avg(danceability) FROM songs;
+purple - This aura color pairs well with passionate music listeners.
+         Purple auras tune in to get amped up, entertained, and moving while they navigate the twists and turns of their day.
+
+other ways of calculating the aura would be using other meaningful values like: loudness, speechiness and tempo.
+Among the top 100 songs there might be songs with very high values that may unbalance the calculation,
+and also the top 1 song should have more impact than the top 100, so maybe using only the top 10 songs should give us data that is more representative.

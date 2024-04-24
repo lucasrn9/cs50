@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{profile.username}}
+{% endblock %}
+
+{% block main %}
+ <section class="profile">
+    {% if session["user_id"] == profile.id %}
+    <form id="pfpform" action="/profile/{{profile.username}}" method="POST" enctype=multipart/form-data>
+        <div class="input-group mb-3">
+            <label class="input-group-text" for="imageInput">Profile Picture</label>
+            <input type="file" accept="image/png, image/jpeg, image/jpg, image/webp" class="form-control" id="imageInput" name="profilePicture" onchange="(function(){
+            const form = document.getElementById('pfpform')
+            form.submit()
+            })()">
+          </div>
+    </form>
+    {% endif %}
+    <div class="profile--imgContainer">
+        <img class="profile--img" src="/profile-picture/{{profile.username}}" alt="{{profile.username}} profile picture">
+    </div>
+    <h5 class="profile--username">{{profile.username}}</h5>
+    <span class="profile">{{articles.quantity}} {{"Article" if articles.quantity == 1 else "Articles"}}</span>
+    <span class="profile"> {{articles.likes}} {{"Like" if articles.likes == 1 else "Likes"}}</span>
+    <span class="profile"> Last posted at: {{articles.lastPostDate}}</span>
+ </section>
+{% endblock %}

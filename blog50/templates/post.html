@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{post.title}}
+{% endblock %}
+
+{% block main %}
+ <section class="post">
+    <h1 class="post--title">{{post.title}}</h1>
+    <h3 class="post--description">{{post.description}}</h3>
+    <div class="post--imgContainer">
+        <img class="post--img" src={{post.article_img}} alt="main image of the article {{post.title}}">
+    </div>
+    <p>{{post.content}}</p>
+        <span>Author: <a href="/profile/{{author.username}}">{{author.username}}</a> </span>
+        <span>Date: {{post.publish_date}}</span>
+        <form action="/post/{{post.id}}" method="post">
+            {% if liked %}
+            <button class="btn btn-success like-btn" type="submit">Liked</button>
+            {% else %}
+            <button class="btn btn-secondary like-btn" type="submit">Like</button>
+            {% endif %}
+        </form>
+ </section>
+{% endblock %}

@@ -1,0 +1,11 @@
+sort1 uses: bubble sort
+
+How do you know?: it is a little faster than sort3 (even thought they are a little simillar), but it still a lot slower than sort3, even more so in the largest files.
+
+sort2 uses: merge sort
+
+How do you know?: it is a lot faster than sort1 and sort2, even on the largest files.
+
+sort3 uses: selection sort
+
+How do you know?: it is the slowest of all the 3, which may indicates that it is the one which takes more steps.

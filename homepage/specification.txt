@@ -1,0 +1,3 @@
+10 HTML tags: header,nav,main,div,span,a,button,h2,p,img
+5 CSS properties: max-width,display,flex-direction,align-items,text-decoration
+javascript and bootstrap: I used bootstrap for components, and javascript to manipulate DOM, for example: render "x" bootstrap component "y" times, within "z" data

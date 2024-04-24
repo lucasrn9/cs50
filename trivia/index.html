@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                <h3> What is the approximate ratio of people to sheep in New Zeland</h3>
+                <div class="answers" id="answers">
+                    <button type="button" name="answer-btn" class="answer-btn" id="answer-1">5 people per 1 sheep</button>
+                    <button type="button" name="answer-btn" class="answer-btn" id="answer-2">3 people per 1 sheep</button>
+                    <button type="button" name="answer-btn" class="answer-btn" id="answer-3">1 people per 1 sheep</button>
+                    <button type="button" name="answer-btn" class="answer-btn" id="answer-4">1 people per 3 sheep</button>
+                    <button type="button" name="answer-btn" class="answer-btn" id="answer-5">1 people per 6 sheep</button>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                <h3 class="freeQuestion">In which country is it illegal to own only one guinea pig, as a lone guinea pig might get lonely</h3>
+                <div id="result">result</div>
+                <div class="answer">
+                    <input type="text" id="answer-input" />
+                    <button type="button" class="check-answer-btn" id="check-answer-btn">Check Answer</button>
+                </div>
+            </div>
+        </div>
+        <script>
+            // Add code to check answers to questions
+            function checkAnswer(userAnswer,correctAnswer){
+                return userAnswer == correctAnswer
+            }
+
+            function handleMultiplequestion(){
+                const correctAnswer = 'answer-1';
+                const answersDiv = document.querySelector('#answers');
+                answersDiv.addEventListener('click',(e)=>{
+                    const targetName = e.target.name;
+                    if(targetName && targetName == 'answer-btn'){
+                    const userAnswer = e.target.id;
+                    const isAnswerCorrect = checkAnswer(userAnswer,correctAnswer);
+                    const btnColor = isAnswerCorrect ? 'green' : 'red';
+                    e.target.style.backgroundColor = btnColor;
+                    }
+                })
+            }
+
+            function handleFreeResponse(){
+                const correctAnswer = 'switzerland';
+                const checkAnswerBtn = document.querySelector('#check-answer-btn');
+
+                checkAnswerBtn.addEventListener('click',()=>{
+                    const answerInput = document.querySelector('#answer-input');
+                    const userAnswer = answerInput.value;
+                    if(userAnswer){
+                        const isAnswerCorrect = checkAnswer(userAnswer.trim().toLowerCase(),correctAnswer);
+                        const inputColor = isAnswerCorrect ? 'green' : 'red';
+                        answerInput.style.backgroundColor = inputColor;
+                        const result = document.querySelector('#result');
+                        result.innerText = isAnswerCorrect ? 'Correct!' : 'Incorrect';
+                        result.style.display = 'block';
+                        result.style.color = 'black';
+                    }
+                })
+            }
+
+            handleMultiplequestion()
+            handleFreeResponse()
+        </script>
+    </body>
+</html>

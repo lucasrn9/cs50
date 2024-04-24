@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    New Post
+{% endblock %}
+
+{% block main %}
+    <form action="/new-post" method="post">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" aria-label="title" name="title" placeholder="Title">
+          </div>
+          
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" name="description" placeholder="Description" aria-label="description">
+          </div>
+
+          <div class="mb-3">
+            <div class="input-group">
+              <span class="input-group-text" id="basic-addon3">Preview Image Link</span>
+              <input type="text" class="form-control" id="basic-url" name="previewImg" aria-describedby="basic-addon3 basic-addon4" placeholder="https://image.png">
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <div class="input-group">
+              <span class="input-group-text" id="basic-addon3">Article Image Link</span>
+              <input type="text" class="form-control" id="basic-url" name="articleImg" aria-describedby="basic-addon3 basic-addon4" placeholder="https://image.png">
+            </div>
+          </div>
+          
+          <div class="input-group">
+            <textarea class="form-control" aria-label="With textarea" name="content" placeholder="Write a new post ..." style="height: 200px;"></textarea>
+          </div>
+          <button class="btn btn-primary post-btn" type="submit">Post</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    
+{% endblock %}
+
+{% block main %}
+<table class="table">
+    <thead>
+        <tr class="table-dark">
+            <th scope="col">Cash Balance</th>
+            <th scope="col">Grand Total</th>
+          </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{cashBalance}}</td>
+            <td>{{grandTotal}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<table class="table">
+    <thead>
+        <tr class="table-dark">
+            <th scope="col">Stock</th>
+            <th scope="col">Shares</th>
+            <th scope="col">Current Price</th>
+            <th scope="col">Total Value</th>
+          </tr>
+    </thead>
+    <tbody>
+        {% for stock in stocks %}
+        <tr>
+            <td>{{stock.symbol}}</td>
+            <td>{{stock.shares}}</td>
+            <td>
+                {% for price in currPrice %}
+                {% if price.symbol == stock.symbol %}
+                {{price.price | usd}}
+                {% endif %}
+                {% endfor %}
+            </td>
+            <td>
+                {% for price in currPrice %}
+                {% if price.symbol == stock.symbol %}
+                {{(price.price * stock.shares) | usd}}
+                {% endif %}
+                {% endfor %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

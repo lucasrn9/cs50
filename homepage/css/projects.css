@@ -1,0 +1,18 @@
+.row{
+    margin-top:2rem;
+    max-width:1038px;
+    --bs-gutter-x: 0;
+}
+
+.col-12.col-md-6.col-lg-4 {
+    display: flex;
+    justify-content: center;
+    margin-bottom:1rem;
+    margin-right:0;
+    margin-left:0;
+    padding:0;
+}
+
+.title{
+    text-align:center;
+}
